@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/hdoro/sanity-plugin-external-files.git"
+    "url": "git+ssh://git@github.com/victoriabros/sanity-plugin-external-files.git"
   },
   "keywords": [
     "sanity.io",
@@ -38,9 +38,9 @@
     "styled-components": "^6"
   },
   "bugs": {
-    "url": "https://github.com/hdoro/sanity-plugin-external-files/issues"
+    "url": "https://github.com/victoriabros/sanity-plugin-external-files/issues"
   },
-  "homepage": "https://github.com/hdoro/sanity-plugin-external-files#readme",
+  "homepage": "https://github.com/victoriabros/sanity-plugin-external-files#readme",
   "exports": {
     ".": {
       "types": "./build/index.d.ts",

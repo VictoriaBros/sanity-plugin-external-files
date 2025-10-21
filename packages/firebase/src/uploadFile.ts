@@ -1,4 +1,4 @@
-import { VendorConfiguration } from 'sanity-plugin-external-files'
+import { VendorConfiguration } from '@victoriabros/sanity-external-dam-plugin'
 import getFirebaseClient, { FirebaseCredentials } from './getFirebaseClient'
 
 const uploadFile: VendorConfiguration['uploadFile'] = ({
