@@ -24,9 +24,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "21.x"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@${{ env.ORG_SCOPE }}"
+          node-version: '21.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@${{ env.ORG_SCOPE }}'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
