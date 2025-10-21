@@ -70,7 +70,7 @@ export function PaneItemPreview(props: PaneItemPreviewProps) {
   return (
     <SanityDefaultPreview
       {...(getPreviewValueWithFallback({
-        original: { title }
+        original: { title },
       }) as any)}
       isPlaceholder={isLoading}
       icon={icon}

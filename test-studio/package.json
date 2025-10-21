@@ -18,8 +18,8 @@
     "@victoriabros/sanity-external-dam-plugin": "workspace:*",
     "@victoriabros/sanity-s3-dam-plugin": "workspace:*",
     "sanity-plugin-digital-ocean-files": "workspace:*",
-    "sanity-plugin-r2-files": "workspace:*",
-    "styled-components": "^6.1.13"
+    "@victoriabros/sanity-cf-dam-plugin": "workspace:*",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@sanity/vision": "^4.10.3",

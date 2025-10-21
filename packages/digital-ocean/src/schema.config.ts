@@ -1,7 +1,7 @@
 import {
   SchemaConfigOptions,
   VendorConfiguration,
-} from 'sanity-plugin-external-files'
+} from '@victoriabros/sanity-external-dam-plugin'
 import {
   LockIcon,
   PinIcon,

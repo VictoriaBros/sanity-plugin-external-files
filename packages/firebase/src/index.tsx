@@ -7,7 +7,7 @@ import {
   getCustomDataSchema,
   getDimensionsSchema,
   getStoredFileSchema,
-} from 'sanity-plugin-external-files'
+} from '@victoriabros/sanity-external-dam-plugin'
 import deleteFile from './deleteFile'
 import { credentialsFields, schemaConfig } from './schema.config'
 import uploadFile from './uploadFile'

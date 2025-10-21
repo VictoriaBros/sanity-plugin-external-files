@@ -57,17 +57,17 @@ This is required because Sanity Studio doesn't support any server-side logic.
 
 ## Configuring Sanity Studio
 
-1. Install the plugin `sanity-plugin-r2-files` by running:
+1. Install the plugin `@victoriabros/sanity-cf-dam-plugin` by running:
 
 ```bash
-npm i sanity-plugin-r2-files
+npm i @victoriabros/sanity-cf-dam-plugin
 # or yarn / pnpm / bun
 ```
 
 2. Include the plugin in your `sanity.config.(js|ts)`:
 
 ```js
-import { cloudflareR2Files } from 'sanity-plugin-r2-files'
+import { cloudflareR2Files } from '@victoriabros/sanity-cf-dam-plugin'
 import { defineConfig } from 'sanity'
 
 export default defineConfig({

@@ -2,7 +2,7 @@ import { ApiIcon, EyeClosedIcon, FolderIcon, PinIcon } from '@sanity/icons'
 import {
   SchemaConfigOptions,
   VendorConfiguration,
-} from 'sanity-plugin-external-files'
+} from '@victoriabros/sanity-external-dam-plugin'
 
 export const schemaConfig: SchemaConfigOptions = {
   title: 'Media file hosted in Cloudflare R2 Bucket',

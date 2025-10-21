@@ -11,7 +11,7 @@ List of vendors currently supported:
 - AWS S3 -> [sanity-plugin-s3-files](https://github.com/hdoro/sanity-plugin-external-files/tree/main/packages/aws)
 - Google Firebase -> [sanity-plugin-firebase-files](https://github.com/hdoro/sanity-plugin-external-files/tree/main/packages/firebase)
 - DigitalOcean Spaces -> [sanity-plugin-digital-ocean-files](https://github.com/hdoro/sanity-plugin-external-files/tree/main/packages/digital-ocean)
-- Cloudflare R2 -> [sanity-plugin-r2-files](https://github.com/hdoro/sanity-plugin-external-files/tree/main/packages/cloudflare-r2)
+- Cloudflare R2 -> [@victoriabros/sanity-cf-dam-plugin](https://github.com/hdoro/sanity-plugin-external-files/tree/main/packages/cloudflare-r2)
 
 Use one of the existing implementations or write your own!
 
