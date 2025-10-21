@@ -1,6 +1,6 @@
 {
   "name": "@victoriabros/sanity-firebase-dam-plugin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Store Sanity media files in Firebase",
   "scripts": {
     "clear-lib": "node clearLib.js",
