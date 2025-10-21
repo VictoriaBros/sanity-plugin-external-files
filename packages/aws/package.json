@@ -24,7 +24,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@sanity/icons": "^3.7.4",
-    "@victoriabros/sanity-external-dam-plugin": "workspace:*"
+    "@victoriabros/sanity-external-dam-plugin": "^2.0.0"
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
