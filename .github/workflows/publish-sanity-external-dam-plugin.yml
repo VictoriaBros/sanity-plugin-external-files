@@ -1,0 +1,45 @@
+name: publish-sanity-external-dam-plugin
+
+on:
+  release:
+    types: [published]
+
+env:
+  ORG_SCOPE: victoriabros
+
+jobs:
+  publish-core:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "21.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@${{ env.ORG_SCOPE }}"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        working-directory: ./packages/core
+        run: npm ci
+
+      - name: Build package
+        working-directory: ./packages/core
+        run: npm run build || echo "No build script found"
+
+      - name: Publish core package
+        working-directory: ./packages/core
+        run: npm publish --access private
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
