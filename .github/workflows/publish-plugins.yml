@@ -1,0 +1,68 @@
+name: publish-sanity-plugins
+
+on:
+  release:
+    types: [published]
+
+env:
+  ORG_SCOPE: victoriabros
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "21.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@${{ env.ORG_SCOPE }}"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # -------------------------------
+      # Step 1: Publish sanity-external-dam-plugin
+      # -------------------------------
+      - name: Publish sanity-external-dam-plugin
+        working-directory: ./packages/core
+        run: |
+          npm ci
+          npm run build || echo "No build script found"
+          npm publish --access private
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # -------------------------------
+      # Step 2: Update sanity-s3-dam-plugin
+      # -------------------------------
+      - name: Update sanity-s3-dam-plugin to new sanity-external-dam-plugin version
+        working-directory: ./packages/aws
+        run: |
+          # Read the version of the just-published core package
+          CORE_VERSION=$(npm view @${{ env.ORG_SCOPE }}/sanity-external-dam-plugin version --registry https://npm.pkg.github.com)
+          echo "Setting @${{ env.ORG_SCOPE }}/sanity-external-dam-plugin version to $CORE_VERSION"
+
+          # Update package.json dependency
+          npm install @${{ env.ORG_SCOPE }}/sanity-external-dam-plugin@$CORE_VERSION
+
+          # Optional: run build if needed
+          npm run build || echo "No build script found"
+
+      # -------------------------------
+      # Step 3: Publish s3-files package
+      # -------------------------------
+      - name: Publish s3-files package
+        working-directory: ./packages/aws
+        run: npm publish --access private
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

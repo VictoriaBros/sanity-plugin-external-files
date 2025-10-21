@@ -52,8 +52,7 @@ export function PaneItemPreview(props: PaneItemPreviewProps) {
         props.documentPreviewStore,
         schemaType,
         value._id,
-        title,
-      ),
+      ) as any,
     [props.documentPreviewStore, schemaType, value._id, title],
   )!
   const { draft, published, isLoading } = useObservable(previewObservable) || {}
@@ -70,7 +69,9 @@ export function PaneItemPreview(props: PaneItemPreviewProps) {
 
   return (
     <SanityDefaultPreview
-      {...(getPreviewValueWithFallback({ value, draft, published }) as any)}
+      {...(getPreviewValueWithFallback({
+        original: { title }
+      }) as any)}
       isPlaceholder={isLoading}
       icon={icon}
       layout={layout}
